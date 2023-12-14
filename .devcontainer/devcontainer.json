@@ -1,0 +1,62 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+{
+	"name": "Benggri github io",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspaces/benggri.github.io",
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
+      "plugins": "",
+      "omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions",
+      "username": "node"
+    },
+		"github-cli": "latest"
+  },
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "yarn install",
+  "postCreateCommand": "sh .devcontainer/startup.sh",
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "eamodio.gitlens",
+        "esbenp.prettier-vscode",
+        "ms-vscode.vscode-typescript-tslint-plugin",
+        "octref.vetur",
+        "Orta.vscode-jest",
+        "ritwickdey.LiveServer",
+        "csstools.postcss",
+        "ms-python.python",
+        "bradlc.vscode-tailwindcss",
+        "mechatroner.rainbow-csv",
+        "bierner.markdown-mermaid",
+      ],
+      "settings": {
+        "files.eol": "\n",
+        "editor.tabSize": 2,
+        "editor.renderWhitespace": "all",
+        "typescript.validate.enable": true,
+        "eslint.alwaysShowStatus": true,
+        "editor.formatOnSave": true,
+        "eslint.workingDirectories": [{ "mode": "auto" }],
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": true
+        },
+        "eslint.validate": ["javascript", "typescript"],
+        "remote.localPortHost": "allInterfaces",
+      },
+    }
+  },
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+  "remoteUser": "node",
+}
