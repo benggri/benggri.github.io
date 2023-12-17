@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  distDir: 'docs',
+  // distDir: 'docs',
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
   reactStrictMode: true,
